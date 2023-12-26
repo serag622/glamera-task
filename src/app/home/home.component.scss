@@ -1,0 +1,33 @@
+
+.create {
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  width: 100% !important;
+  box-sizing: border-box;
+}
+
+.left {
+  height: 100%;
+  background: #635CA8 0% 0% no-repeat padding-box;
+  box-shadow: 0px 4px 16px #DDDDE014;
+  opacity: 0.25;}
+
+
+.right {
+  max-height: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #F5F6F9 0% 0% no-repeat padding-box;
+  opacity: 1;
+}
+
+
+.viewPassword-btn {
+  position: absolute;
+  top: 20%;
+  right: 2%;
+  background: none;
+  border: none;
+  z-index: 1000;
+}

@@ -1,0 +1,78 @@
+<diV class="create row">
+
+  <div class="col-4 left">
+  </div>
+
+  <div class="col-8 right p-5">
+
+    <h6 class="text-end"><span class="text-muted"> Having troubles? </span> <strong> Get Help </strong></h6>
+
+    <h4 class="mt-5">Start your business now</h4>
+    <P class="text-muted">Creating your company is just a few steps away,<br> Enter your email address to continue.</P>
+
+    <form [formGroup]="Form" class="py-3">
+
+      <div class="row mt-4">
+
+        <div class="mb-3 col-6">
+          <label class="form-label">First Name</label>
+          <input type="text" class="form-control" placeholder="">
+        </div>
+
+        <div class="mb-3 col-6">
+          <label class="form-label">Last Name</label>
+          <input type="text" class="form-control" placeholder="">
+        </div>
+
+        <div class="mb-3 col-6">
+          <label class="form-label">Email address</label>
+          <input type="text" class="form-control" placeholder="name@example.com">
+        </div>
+
+        <div class="mb-3 col-6">
+          <label class="form-label">Phone Number</label>
+          <input type="email" class="form-control" placeholder="">
+        </div>
+
+        <div class="mb-3 col-6 ">
+          <label class="form-label">Password</label>
+          <div class="input-group" style="position: relative;">
+            <input [type]=" !viewPassword ? 'password' : 'text'" class="form-control">
+            <button class="viewPassword-btn" (click)="showPassword()">
+              <app-feather-icons [icon]="!viewPassword ? 'eye-off' : 'eye' "></app-feather-icons>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="d-flex justify-content-between mt-3">
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+          <label class="form-check-label" for="flexCheckIndeterminate">
+            Agree to the Privacy Policy and Terms & Conditions
+          </label>
+        </div>
+
+        <div>
+          <button (click)="openNewDialog()" class="btn btn-primary text-white fw-bold">
+            Next
+            <app-feather-icons [icon]="'arrow-right'" [class]="'ms-3'"></app-feather-icons>
+          </button>
+        </div>
+
+      </div>
+
+
+    </form>
+
+  </div>
+</diV>
+
+
+<ng-template #ref>
+
+    <h4>dasssssssssssssssss</h4>
+
+</ng-template>
