@@ -10,7 +10,7 @@ import {
 } from "@angular/forms";
 import { SharedModule } from '../shared/shared.module';
 import { Router } from '@angular/router';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -20,16 +20,18 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   imports: [CommonModule , ReactiveFormsModule , FormsModule , SharedModule   ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'] ,
-  providers : []
+  providers : [NgbModalConfig]
 })
 export class HomeComponent implements OnInit {
 
   Form !: UntypedFormGroup;
   viewPassword : boolean = false;
 	private modalService = inject(NgbModal);
+  @ViewChild('ref') OTPModel !: TemplateRef<any>;
 
-  constructor(private fb: UntypedFormBuilder,private router : Router ){
-
+  constructor(private fb: UntypedFormBuilder,private router : Router , 	config: NgbModalConfig, ){
+    config.backdrop = 'static';
+		config.keyboard = false;
   }
 
   ngOnInit(): void {
@@ -43,9 +45,10 @@ export class HomeComponent implements OnInit {
      email : ['' , [Validators.required , Validators.email]] ,
      phoneNumber: this.fb.group({
       countryCode: [''],
-      number: ['', [Validators.required]]
+      number: ['']
     }),
-    password : ['']
+    password : ['' , Validators.required] ,
+    isAgree : [false , Validators.required]
     });
   }
 
@@ -66,24 +69,20 @@ export class HomeComponent implements OnInit {
 
       Object.values(this.Form.controls).forEach(control => {
         if (control.invalid) {
+          console.log(control.value)
           control.markAsDirty();
           control.updateValueAndValidity({ onlySelf: true });
           this.isDisabled = false;
         }
       });
     } else {
-      
-      
-
+      this.openNewDialog()  
+      this.isDisabled = false;
     }
   }
-
-
-  @ViewChild('ref') Holidays !: TemplateRef<any>;
-
+  
   openNewDialog() {
-    const modalRef = this.modalService.open(this.Holidays);
+    const modalRef = this.modalService.open(this.OTPModel);
   }
-
 
 }

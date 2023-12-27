@@ -16,28 +16,28 @@
 
         <div class="mb-3 col-6">
           <label class="form-label">First Name</label>
-          <input type="text" class="form-control" placeholder="">
+          <input type="text" formControlName="firstName" class="form-control" placeholder=""  >
         </div>
 
         <div class="mb-3 col-6">
           <label class="form-label">Last Name</label>
-          <input type="text" class="form-control" placeholder="">
+          <input type="text" class="form-control" placeholder="" formControlName="lastName" >
         </div>
 
         <div class="mb-3 col-6">
           <label class="form-label">Email address</label>
-          <input type="text" class="form-control" placeholder="name@example.com">
+          <input type="email" class="form-control" placeholder="name@example.com" formControlName="email" >
         </div>
 
         <div class="mb-3 col-6">
           <label class="form-label">Phone Number</label>
-          <input type="email" class="form-control" placeholder="">
+          <input type="text" class="form-control" placeholder=""   >
         </div>
 
         <div class="mb-3 col-6 ">
           <label class="form-label">Password</label>
           <div class="input-group" style="position: relative;">
-            <input [type]=" !viewPassword ? 'password' : 'text'" class="form-control">
+            <input [type]=" !viewPassword ? 'password' : 'text'" class="form-control" formControlName="password">
             <button class="viewPassword-btn" (click)="showPassword()">
               <app-feather-icons [icon]="!viewPassword ? 'eye-off' : 'eye' "></app-feather-icons>
             </button>
@@ -49,7 +49,7 @@
       <div class="d-flex justify-content-between mt-3">
 
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+          <input class="form-check-input" type="checkbox" formControlName="isAgree" id="flexCheckIndeterminate">
           <label class="form-check-label" for="flexCheckIndeterminate">
             Agree to the Privacy Policy and Terms & Conditions
           </label>
@@ -70,8 +70,17 @@
   </div>
 </diV>
 
-<ng-template #ref>
+<ng-template #ref   let-d="dismiss" >
 
-    <h4>dasssssssssssssssss</h4>
+	<div class="p-2">
+		<button type="button" class="btn-close " aria-label="Close" (click)="d('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+
+    <div class="text-center" >
+      <img src="assets/imgs/Group.png" alt="icon" class="img-fluid" >
+    </div>
+
+	</div>
 
 </ng-template>
