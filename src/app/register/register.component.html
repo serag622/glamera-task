@@ -1,1 +1,132 @@
-<p>register works!</p>
+<diV class="create row">
+
+  <div class="col-3 left  ">
+    <div class="text-center my-5 p-4">
+      <img src="assets/imgs/Group3.png">
+    </div>
+
+    <div class="my-5 px-5">
+      <p class=" text-light  fs-3">Few clicks away from creating your business</p>
+    </div>
+
+    <div class="my-5 px-5">
+      <p class=" text-light  ">Start your business in minutes. save time and money</p>
+    </div>
+
+  </div>
+
+  <div class="col-9 right p-5">
+
+    <h6 class="text-end"><span class="text-muted"> Having troubles? </span> <strong> Get Help </strong></h6>
+
+    <h4 class="mt-5">Choose the type of business</h4>
+    <P class="text-muted">To get start tell us what type of Business you are going to incorporate and name</P>
+
+    <form [formGroup]="Form" class="py-3 needs-validation" novalidate>
+
+      <div class="row mt-4">
+
+        <div class="mb-3 col-8">
+          <label for="validationCustom01" class="form-label">Business Name</label>
+          <input type="text" formControlName="businessName" id="validationCustom01" class="form-control"
+            [ngClass]="{ 'input-invalid' : Form.get('businessName')?.hasError('required') && isSubmit }">
+          @if(Form.get('businessName')?.hasError('required') && isSubmit){
+          <span class="validation">
+            Please enter your business name.
+          </span>
+          }
+        </div>
+
+
+        <div class="mb-3 col-8">
+          <label class="form-label">Business Type</label>
+
+          <ul class="ks-cboxtags p-0">
+            <li *ngFor="let b of businessTypes;let i = index" class="mx-2">
+              <input type="checkbox" [id]="'check_'+b?.id" [value]="b.id" [checked]="b.selected"
+                (change)="change($event,b)">
+              <label [for]="'check_'+b?.id" class="h-auto">
+                <app-feather-icons [icon]="b.icon" [class]="'me-3'"></app-feather-icons>
+                {{ b.name }}
+              </label>
+            </li>
+          </ul>
+
+          @if(Form.get('businessType')?.hasError('required') && isSubmit){
+          <span class="validation">
+            Please select your business type.
+          </span>
+          }
+        </div>
+
+        <div class="col-8 row px-0">
+          <div class="mb-3 col-6">
+            <label>Goverment</label>
+            <select class="form-select" formControlName="goverment" aria-label="Default select example">
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+            @if(Form.get('goverment')?.hasError('required') && isSubmit){
+            <span class="validation">
+              Please select your goverment.
+            </span>
+            }
+          </div>
+
+          <div class="mb-3 col-6">
+            <label>District</label>
+            <select class="form-select" formControlName="district" aria-label="Default select example">
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+            @if(Form.get('district')?.hasError('required') && isSubmit){
+            <span class="validation">
+              Please select your district.
+            </span>
+            }
+          </div>
+
+        </div>
+
+        <diV class="col-8 mb-3 row px-0">
+            <div class="mb-3 col-6">
+                <label>How did you know us?</label>
+                <select class="form-select" formControlName="howKnow" aria-label="Default select example">
+                  <option value="1">Facebook</option>
+                  <option value="2">Twitter</option>
+                  <option value="3">Firend</option>
+                </select>
+              </div>
+
+              <div class="mb-3 col-6">
+               <label class="d-block mb-2">Are you currently using system ?</label>
+               
+               <div class="form-check form-check-inline">
+                <input class="form-check-input" formControlName="isUsingSystem" type="radio" name="isUsingSystem" id="inlineRadio1" value="true">
+                <label class="form-check-label" for="inlineRadio1">Yes</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" formControlName="isUsingSystem" type="radio" name="isUsingSystem" id="inlineRadio2" value="false">
+                <label class="form-check-label" for="inlineRadio2">No</label>
+              </div>
+              </div>
+
+        </diV>
+
+
+        <div class="col-8 d-flex justify-content-end">
+          <button (click)="submit()" type="submit" class="btn btn-primary text-white fw-bold">
+            Create Account
+            <app-feather-icons [icon]="'arrow-right'" [class]="'ms-3'"></app-feather-icons>
+          </button>
+        </div>
+
+      </div>
+
+
+    </form>
+
+  </div>
+</diV>

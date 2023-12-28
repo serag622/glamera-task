@@ -7,7 +7,7 @@ export const routes: Routes = [
     },
     {
       path: 'success',
-      loadComponent: () => import('./login/login.component').then(c => c.LoginComponent),
+      loadComponent: () => import('./success/success.component').then(c => c.SuccessComponent),
     },
     {
       path: 'register',
