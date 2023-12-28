@@ -1,6 +1,6 @@
-<diV class="create row">
+<diV class="create row p-0">
 
-  <div class="col-3 left  ">
+  <div class="col-3 left p-0 ">
     <div class="text-center my-5 p-4">
       <img src="assets/imgs/Group3.png">
     </div>
@@ -12,7 +12,6 @@
     <div class="my-5 px-5">
       <p class=" text-light  ">Start your business in minutes. save time and money</p>
     </div>
-
   </div>
 
   <div class="col-9 right p-5">
@@ -59,10 +58,10 @@
           }
         </div>
 
-        <div class="col-8 row px-0">
+        <div class="col-8 mb-1 row px-0">
           <div class="mb-3 col-6">
             <label>Goverment</label>
-            <select class="form-select" formControlName="goverment" aria-label="Default select example">
+            <select class="form-select" formControlName="goverment" [ngClass]="{ 'input-invalid' : Form.get('goverment')?.hasError('required') && isSubmit }">
               <option value="1">One</option>
               <option value="2">Two</option>
               <option value="3">Three</option>
@@ -76,7 +75,7 @@
 
           <div class="mb-3 col-6">
             <label>District</label>
-            <select class="form-select" formControlName="district" aria-label="Default select example">
+            <select class="form-select" formControlName="district" [ngClass]="{ 'input-invalid' : Form.get('district')?.hasError('required') && isSubmit }">
               <option value="1">One</option>
               <option value="2">Two</option>
               <option value="3">Three</option>
@@ -117,8 +116,8 @@
 
 
         <div class="col-8 d-flex justify-content-end">
-          <button (click)="submit()" type="submit" class="btn btn-primary text-white fw-bold">
-            Create Account
+          <button (click)="submit()" type="submit" class="btn submit-btn p-2 text-white fw-bold">
+            CREATE ACCOUNT
             <app-feather-icons [icon]="'arrow-right'" [class]="'ms-3'"></app-feather-icons>
           </button>
         </div>
